@@ -5,6 +5,12 @@ from authentication.forms import UserForm
 # Create your views here.
 def home(request):
     return HttpResponse("Home")
+
+class SignInView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("Sign In")
+    def post(self, request, *args, **kwargs):
+        return HttpResponse("Sign In")
 class SignUpView(View):
     template_name = 'authentication/signup.html'
     form_class = UserForm
