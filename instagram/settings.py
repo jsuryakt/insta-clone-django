@@ -126,3 +126,5 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'user.User'
+
+LOGIN_URL = 'signin_view'
