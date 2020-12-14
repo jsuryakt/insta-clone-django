@@ -5,6 +5,7 @@ from authentication.forms import UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView
 # Create your views here.
 
 class SignInView(View):
@@ -50,3 +51,15 @@ class SignOutView(View):
     def post(self, request):
         logout(request)
         return redirect('signin_view')
+
+class PRView(PasswordResetView):
+    template_name = 'authentication/password_reset.html'
+
+class PRConfirm(PasswordResetConfirmView):
+    template_name = 'authentication/password_reset_confirm.html'
+
+class PRDone(PasswordResetDoneView):
+    template_name = 'authentication/password_reset_done.html'
+
+class PRComplete(PasswordResetCompleteView):
+    template_name = 'authentication/password_reset_complete.html'
